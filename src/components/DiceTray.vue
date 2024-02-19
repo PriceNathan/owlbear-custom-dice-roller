@@ -1,7 +1,6 @@
 <script>
 import OBR from "@owlbear-rodeo/sdk";
 import {DiceRoller} from "@dice-roller/rpg-dice-roller";
-import {markRaw} from "vue";
 
 const systemDice = {
   "DCC": [3, 4, 5, 6, 7, 8, 10, 12, 14, 16, 20, 24, 30, 100],
