@@ -18,8 +18,7 @@ export default {
       roller: {},
       player: null,
       rolls: [],
-      // system: null,
-      system: 'DCC',
+      system: null,
       diceTray: [],
       toggleDiceSelection: false,
     };

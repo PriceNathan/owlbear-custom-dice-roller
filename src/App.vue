@@ -1,7 +1,5 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
 import DiceTray from "./components/DiceTray.vue";
-import { DiceRollerTailwind } from '@dice-roller/vue';
 import {reactive} from "vue";
 
 const name = reactive()
