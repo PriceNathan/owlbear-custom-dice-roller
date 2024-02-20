@@ -10,8 +10,8 @@ OBR.onReady(() => {
   OBR.room.onMetadataChange((metadata) => {
     if(metadata['com.nathan-price.owlbear-rodeo.message']){
       OBR.notification.show(metadata['com.nathan-price.owlbear-rodeo.message']);
-      OBR.room.setMetadata({'com.nathan-price.owlbear-rodeo.message': null});
     }
+    OBR.room.setMetadata({'com.nathan-price.owlbear-rodeo.message': null});
     console.log(metadata);
   });
 });
