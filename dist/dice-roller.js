@@ -38006,7 +38006,7 @@ ${n}`;
       }
     }
   }
-}, dq = (r) => (ab("data-v-d3774cdf"), r = r(), ib(), r), hq = { class: "container-sm" }, gq = /* @__PURE__ */ dq(() => /* @__PURE__ */ rn("div", { class: "" }, " Custom Dice Roller ", -1)), yq = { class: "options py-4" }, bq = { key: 0 }, xq = ["value"], wq = { class: "mx-auto" }, Nq = { class: "flex flex-wrap" }, Aq = { key: 0 }, Eq = ["onClick"], Dq = { key: 1 }, Sq = ["onClick", "onContextmenu"], Cq = ["disabled"];
+}, dq = (r) => (ab("data-v-a9857462"), r = r(), ib(), r), hq = { class: "container-sm" }, gq = /* @__PURE__ */ dq(() => /* @__PURE__ */ rn("div", { class: "" }, " Custom Dice Roller ", -1)), yq = { class: "options py-4" }, bq = { key: 0 }, xq = ["value"], wq = { class: "mx-auto" }, Nq = { class: "flex flex-wrap" }, Aq = { key: 0 }, Eq = ["onClick"], Dq = { key: 1 }, Sq = ["onClick", "onContextmenu"], Cq = ["disabled"];
 function Mq(r, e, t, n, a, i) {
   return Kt(), Qt("div", hq, [
     gq,
@@ -38023,6 +38023,7 @@ function Mq(r, e, t, n, a, i) {
       ])) : nu("", !0),
       rn("div", wq, [
         rn("button", {
+          class: "btn",
           onClick: e[2] || (e[2] = (o) => a.toggleDiceSelection = !a.toggleDiceSelection)
         }, "Select Dice")
       ])
@@ -38034,12 +38035,12 @@ function Mq(r, e, t, n, a, i) {
         }, [
           a.toggleDiceSelection ? (Kt(), Qt("div", Aq, [
             rn("button", {
-              class: Pl(["dice-button", { show: o.show, hide: !o.show }]),
+              class: Pl(["btn", { show: o.show, hide: !o.show }]),
               onClick: (f) => o.show = !o.show
             }, "d" + Ji(o.value), 11, Eq)
           ])) : o.show && !a.toggleDiceSelection ? (Kt(), Qt("div", Dq, [
             rn("button", {
-              class: "dice-button",
+              class: "btn",
               onClick: (f) => o.count++,
               onContextmenu: nb((f) => o.count > 0 ? o.count-- : null, ["right", "prevent"])
             }, "d" + Ji(o.value) + ": " + Ji(o.count), 41, Sq)
@@ -38054,7 +38055,7 @@ function Mq(r, e, t, n, a, i) {
     ])
   ]);
 }
-const Bq = /* @__PURE__ */ vq(pq, [["render", Mq], ["__scopeId", "data-v-d3774cdf"]]);
+const Bq = /* @__PURE__ */ vq(pq, [["render", Mq], ["__scopeId", "data-v-a9857462"]]);
 export {
   Bq as DiceTray
 };

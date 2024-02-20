@@ -124,7 +124,7 @@ export default {
       </select>
     </div>
     <div class="mx-auto">
-      <button @click="toggleDiceSelection = !toggleDiceSelection">Select Dice</button>
+      <button class="btn" @click="toggleDiceSelection = !toggleDiceSelection">Select Dice</button>
     </div>
   </div>
 
@@ -133,10 +133,10 @@ export default {
     <div class="flex flex-wrap">
       <div v-for="die in diceTray" :class="{'w-1/2': (die.show && !toggleDiceSelection) || toggleDiceSelection}">
         <div v-if="toggleDiceSelection" >
-          <button class="dice-button" @click="die.show = !die.show"  :class="{ 'show': die.show, 'hide': !die.show }">d{{die.value}}</button>
+          <button class="btn" @click="die.show = !die.show"  :class="{ 'show': die.show, 'hide': !die.show }">d{{die.value}}</button>
         </div>
         <div v-else-if="die.show && !toggleDiceSelection">
-          <button class="dice-button" @click="die.count++" @click.right.prevent="die.count > 0 ? die.count-- : null">d{{die.value}}: {{die.count}}</button>
+          <button class="btn" @click="die.count++" @click.right.prevent="die.count > 0 ? die.count-- : null">d{{die.value}}: {{die.count}}</button>
         </div>
       </div>
     </div>
@@ -158,10 +158,11 @@ export default {
   background-color: red;
 }
 
-.dice-button{
+.btn{
   margin: 0.5em;
   padding: 0.5em;
-  border-radius: 0.5em;
+  border-radius: 8px;
+  border: 2px solid black;
   cursor: pointer;
 }
 </style>
