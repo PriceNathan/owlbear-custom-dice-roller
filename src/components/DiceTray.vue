@@ -6,6 +6,15 @@ const systemDice = {
   "DCC": [3, 4, 5, 6, 7, 8, 10, 12, 14, 16, 20, 24, 30, 100],
   "D&D": [4, 6, 8, 10, 12, 20, 100],
 }
+OBR.onReady(() => {
+  OBR.room.onMetadataChange((metadata) => {
+    if(metadata['com.nathan-price.owlbear-rodeo.message']){
+      OBR.notification.show(metadata['com.nathan-price.owlbear-rodeo.message']);
+      OBR.room.setMetadata({'com.nathan-price.owlbear-rodeo.message': null});
+    }
+    console.log(metadata);
+  });
+});
 
 export default {
   name: "DiceTray",
@@ -101,7 +110,12 @@ export default {
       console.log(message);
 
       try{
-        OBR.notification.show(message);
+        let messageObject = {
+          'com.nathan-price.owlbear-rodeo.message': message
+        }
+        OBR.room.setMetadata(messageObject);
+        console.log(OBR);
+        // OBR.notification.show(message);
       } catch (e) {
         console.log(e);
       }
