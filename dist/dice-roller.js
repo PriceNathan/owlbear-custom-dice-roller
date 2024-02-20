@@ -38006,7 +38006,7 @@ ${n}`;
       }
     }
   }
-}, dq = (r) => (ab("data-v-a9857462"), r = r(), ib(), r), hq = { class: "container-sm" }, gq = /* @__PURE__ */ dq(() => /* @__PURE__ */ rn("div", { class: "" }, " Custom Dice Roller ", -1)), yq = { class: "options py-4" }, bq = { key: 0 }, xq = ["value"], wq = { class: "mx-auto" }, Nq = { class: "flex flex-wrap" }, Aq = { key: 0 }, Eq = ["onClick"], Dq = { key: 1 }, Sq = ["onClick", "onContextmenu"], Cq = ["disabled"];
+}, dq = (r) => (ab("data-v-dffa5802"), r = r(), ib(), r), hq = { class: "container-sm" }, gq = /* @__PURE__ */ dq(() => /* @__PURE__ */ rn("div", { class: "" }, " Custom Dice Roller ", -1)), yq = { class: "options py-4" }, bq = { key: 0 }, xq = ["value"], wq = { class: "mx-auto" }, Nq = { class: "flex flex-wrap" }, Aq = { key: 0 }, Eq = ["onClick"], Dq = { key: 1 }, Sq = ["onClick", "onContextmenu"], Cq = ["disabled"];
 function Mq(r, e, t, n, a, i) {
   return Kt(), Qt("div", hq, [
     gq,
@@ -38049,13 +38049,14 @@ function Mq(r, e, t, n, a, i) {
       ]),
       a.toggleDiceSelection ? nu("", !0) : (Kt(), Qt("button", {
         key: 0,
+        class: "btn",
         onClick: e[3] || (e[3] = (...o) => i.rollDice && i.rollDice(...o)),
         disabled: !i.hasDiceSelected
       }, "Roll", 8, Cq))
     ])
   ]);
 }
-const Bq = /* @__PURE__ */ vq(pq, [["render", Mq], ["__scopeId", "data-v-a9857462"]]);
+const Bq = /* @__PURE__ */ vq(pq, [["render", Mq], ["__scopeId", "data-v-dffa5802"]]);
 export {
   Bq as DiceTray
 };

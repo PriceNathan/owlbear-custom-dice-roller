@@ -141,7 +141,7 @@ export default {
       </div>
     </div>
 
-    <button v-if="!toggleDiceSelection" @click="rollDice" :disabled="!hasDiceSelected">Roll</button>
+    <button class="btn" v-if="!toggleDiceSelection" @click="rollDice" :disabled="!hasDiceSelected">Roll</button>
   </div>
 
 
