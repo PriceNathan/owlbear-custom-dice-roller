@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "files": ["dist"],
-  "main": "./dist/my-lib.umd.cjs",
-  "module": "./dist/my-lib.js",
+  "main": "./dist/dice-roller.umd.cjs",
+  "module": "./dist/dice-roller.js",
   "exports": {
     ".": {
       "import": "./dist/dice-roller.js",
