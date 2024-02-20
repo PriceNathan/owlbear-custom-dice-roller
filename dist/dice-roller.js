@@ -38055,5 +38055,5 @@ function Mq(r, e, t, n, a, i) {
 }
 const Bq = /* @__PURE__ */ vq(pq, [["render", Mq], ["__scopeId", "data-v-d3774cdf"]]);
 export {
-  Bq as diceTray
+  Bq as DiceTray
 };
