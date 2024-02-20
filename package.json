@@ -1,19 +1,8 @@
 {
-  "name": "dice-roller",
+  "name": "owlbear-custom-dice-roller",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "files": [
-    "dist"
-  ],
-  "main": "./dist/dice-roller.umd.cjs",
-  "module": "./dist/dice-roller.js",
-  "exports": {
-    ".": {
-      "import": "./dist/dice-roller.js",
-      "require": "./dist/dice-roller.umd.cjs"
-    }
-  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
