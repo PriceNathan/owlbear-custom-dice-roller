@@ -6,13 +6,20 @@ const systemDice = {
   "DCC": [3, 4, 5, 6, 7, 8, 10, 12, 14, 16, 20, 24, 30, 100],
   "D&D": [4, 6, 8, 10, 12, 20, 100],
 }
+
+function isOld(object)
+{
+  return object.timeStamp < Date.now() - 1000;
+}
+
 OBR.onReady(() => {
-  OBR.room.onMetadataChange((metadata) => {
-    if(metadata['com.nathan-price.owlbear-rodeo.message']){
-      OBR.notification.show(metadata['com.nathan-price.owlbear-rodeo.message']);
-    }
-    // OBR.room.setMetadata({'com.nathan-price.owlbear-rodeo.message': null});
-    console.log(metadata);
+  OBR.party.onChange((party) => {
+    party.forEach((player) => {
+      console.log(player.metadata['com.nathan-price.owlbear-rodeo.message'].message);
+      if(player.metadata['com.nathan-price.owlbear-rodeo.message'] !== null && !isOld(player.metadata['com.nathan-price.owlbear-rodeo.message'])){
+        OBR.notification.show(player.metadata['com.nathan-price.owlbear-rodeo.message'].message);
+      }
+    });
   });
 });
 
@@ -26,7 +33,7 @@ export default {
       roller: {},
       player: null,
       rolls: [],
-      system: null,
+      system: "DCC",
       diceTray: [],
       toggleDiceSelection: false,
     };
@@ -107,19 +114,24 @@ export default {
 
       let message = `${totalMessage}\n${output}`;
       //log total message and output to console, separated by line break
-      console.log(message);
 
       try{
-        let messageObject = {
-          'com.nathan-price.owlbear-rodeo.message': message
-        }
-        OBR.room.setMetadata(messageObject);
-        console.log(OBR);
-        // OBR.notification.show(message);
+
+        this.setNotificationMetadata(message);
       } catch (e) {
         console.log(e);
       }
     },
+    setNotificationMetadata(message) {
+      let messageObject = {
+        'com.nathan-price.owlbear-rodeo.message': {
+          message: message,
+          timestamp: Date.now(),
+        },
+      }
+      OBR.notification.show(message);
+      OBR.player.setMetadata(messageObject);
+    }
   }
 }
 </script>
