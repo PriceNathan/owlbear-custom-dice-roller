@@ -9,14 +9,14 @@ const systemDice = {
 
 function isOld(object)
 {
-  return object.timeStamp < Date.now() - 1000;
+  return object.timestamp < Date.now() - 1000;
 }
 
 OBR.onReady(() => {
   OBR.party.onChange((party) => {
     party.forEach((player) => {
       console.log(player.metadata['com.nathan-price.owlbear-rodeo.message'].message);
-      if(player.metadata['com.nathan-price.owlbear-rodeo.message'] !== null && !isOld(player.metadata['com.nathan-price.owlbear-rodeo.message'])){
+      if(player.metadata['com.nathan-price.owlbear-rodeo.message'] && !isOld(player.metadata['com.nathan-price.owlbear-rodeo.message'])){
         OBR.notification.show(player.metadata['com.nathan-price.owlbear-rodeo.message'].message);
       }
     });
@@ -138,25 +138,26 @@ export default {
 
 <template>
 <div class="container-sm">
-  <div class="">
-    Custom Dice Roller
-  </div>
-  <div class="options py-4">
-    <div v-if="toggleDiceSelection">
-      <!-- dropdown for system selection -->
-      <select v-model="system"  v-on:change="createDice">
-        <!-- label for system selection -->
-        <option v-for="system in systems" :value="system">{{system}}</option>
-      </select>
+  <div class="flex pb-2">
+    <div class="w-1/2">
+      <button class="btn text-xs" @click="toggleDiceSelection = !toggleDiceSelection">Options</button>
     </div>
-    <div class="mx-auto">
-      <button class="btn" @click="toggleDiceSelection = !toggleDiceSelection">Select Dice</button>
+    <div class="w-1/2 flex">
+      <div v-if="toggleDiceSelection">
+        <!-- dropdown for system selection -->
+        <select v-model="system"  v-on:change="createDice" class="text-sm">
+          <!-- label for system selection -->
+          <option v-for="system in systems" :value="system">{{system}}</option>
+        </select>
+      </div>
     </div>
   </div>
 
   <!-- dice tray -->
   <div >
     <div class="flex flex-wrap">
+      <small  v-if="toggleDiceSelection" >Click below to toggle the dice you'd like in your tray.</small>
+      <small  v-else >Left click to increment die, right click to decrement.</small>
       <div v-for="die in diceTray" :class="{'w-1/2': (die.show && !toggleDiceSelection) || toggleDiceSelection}">
         <div v-if="toggleDiceSelection" >
           <button class="btn" @click="die.show = !die.show"  :class="{ 'show': die.show, 'hide': !die.show }">d{{die.value}}</button>
