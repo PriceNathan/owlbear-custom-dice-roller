@@ -8,8 +8,8 @@
   "module": "./dist/my-lib.js",
   "exports": {
     ".": {
-      "import": "./dist/my-lib.js",
-      "require": "./dist/my-lib.umd.cjs"
+      "import": "./dist/dice-roller.js",
+      "require": "./dist/dice-roller.umd.cjs"
     }
   },
   "scripts": {
