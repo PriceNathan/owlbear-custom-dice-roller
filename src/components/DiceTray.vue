@@ -7,19 +7,10 @@ const systemDice = {
   "D&D": [4, 6, 8, 10, 12, 20, 100],
 }
 
-function isOld(object)
-{
-  return object.timestamp < Date.now() - 1000;
-}
-
 OBR.onReady(() => {
-  OBR.party.onChange((party) => {
-    party.forEach((player) => {
-      console.log(player.metadata['com.nathan-price.owlbear-rodeo.message'].message);
-      if(player.metadata['com.nathan-price.owlbear-rodeo.message'] && !isOld(player.metadata['com.nathan-price.owlbear-rodeo.message'])){
-        OBR.notification.show(player.metadata['com.nathan-price.owlbear-rodeo.message'].message);
-      }
-    });
+  OBR.broadcast.onMessage("com.nathan-price.owlbear-rodeo", (message) => {
+    console.log('broadcast received');
+    console.log(message.data);
   });
 });
 
@@ -116,22 +107,11 @@ export default {
       //log total message and output to console, separated by line break
 
       try{
-
-        this.setNotificationMetadata(message);
+        OBR.broadcast.sendMessage("com.nathan-price.owlbear-rodeo", message, {destination: "ALL"});
       } catch (e) {
         console.log(e);
       }
     },
-    setNotificationMetadata(message) {
-      let messageObject = {
-        'com.nathan-price.owlbear-rodeo.message': {
-          message: message,
-          timestamp: Date.now(),
-        },
-      }
-      OBR.notification.show(message);
-      OBR.player.setMetadata(messageObject);
-    }
   }
 }
 </script>
